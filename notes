@@ -1,0 +1,9 @@
+python -m venv .venv
+
+source .venv/bin/activate
+
+python -m pip
+
+python -m pip install ipython
+
+ipython #jupyter notebooks para terminal
