@@ -1,0 +1,36 @@
+python -m venv .venv
+
+source .venv/bin/activate
+
+python -m pip
+
+python -m pip install ipython
+
+ipython #jupyter notebooks para terminal
+
+dir(int) #retorna todos os metodos que pode utilizar com ese tipo de dado
+
+print("joao" + var)  #usado em logging
+
+template: "texto %s valor %d"  #usado em logging
+template = (% nome, saldo)
+
+print("ola %s" % nome) 
+print("ola %s" % 1234)
+%s = str
+%03d = digito #3 casas
+%.2f = float #duas casas decimais
+
+msg = "mensagem {} texto {}" #email
+msg.format("joao",123)
+
+
+nome="joao"
+print(f"Ola {nome}") #restante
+
+
+print("\N{nome do emoji}") #usando os nome em site de emoji utf-8
+
+
+
+

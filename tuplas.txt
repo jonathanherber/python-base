@@ -1,0 +1,18 @@
+Entre parenteses
+dados = (1,2,3,4)
+Imutavel
+
+Usado para pontos em plano cartesiano, por exemplo
+
+#Desempacotar a tupla: 
+
+pontos = (2,1,1)
+x,y,z = pontos
+x=2
+y=1
+z=1
+
+x,*_ = pontos
+x=2
+_=[1,1]
+

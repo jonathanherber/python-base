@@ -1,0 +1,39 @@
+Mutavel
+Hash Table
+key -> value
+{}
+dict({})
+
+cliente = {"nome":"Joao"}
+cliente[nome]
+
+cliente["nome"]="teste" #adicionar
+del cliente["nome"] #remover
+
+key in dict:
+"nome" in cliente:
+
+Nao permite chaves duplicadas
+
+clientes.keys() #chaves
+clientes.values() #valores
+clientes.items() #tudo
+
+cliente.update(outro_dict) #extender
+
+dict3 = {**dict1, **dict2} #desempacotando e formando um novo dict a partir de dois existentes
+
+iteracao mais comum:
+for chave in clientes:
+    print(chave, clientes[chave])
+
+ou
+
+for chave, valor in clientes.items:
+    print(chave,valor)
+
+
+dict_nome.get("key") #procura a chave, caso nao encontre, retorna None
+
+
+

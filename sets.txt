@@ -1,0 +1,34 @@
+Chaves
+
+c1 = {1,2,3} #confunde com dict
+
+c1 = set((1,2,3))
+ou
+c1 = set([1,2,3])
+Feito a partir de qualquer objeto iteravel (str, list, tuple,etc.)
+
+Nao permite repeticao, sem ordenacao
+
+Usado para remover duplicados #muito utilizado
+
+set(conjunto_a) | set(conjunto_b) #uniao
+ou 
+conjunto_a.union(conjunto_b)
+
+conjunto_a & conjunto_b #interseccao
+ou
+conjunto_a.intersection(conjunto_b)
+
+conjunto_a - conjunto_b #diferenca
+
+conjunto_a ^ conjunto_b #diferenca simetrica
+
+Objetos de transicao, nao indicado para armazenamento de valores
+
+Hash table, otimizado para buscar contains:  valor in valores
+
+Set nao se acessa pelo index
+
+
+
+

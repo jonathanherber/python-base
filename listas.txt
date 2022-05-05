@@ -1,0 +1,14 @@
+#semlhante a array, vetores
+
+Colchetes
+users = [] #preferencial
+ou
+user= list()
+
+Mutavel
+
+users.append("nome") para adicionar no final
+users.insert(0,"nome")
+users.remove("nome")
+users.extend(outra_lista)
+
