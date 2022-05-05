@@ -1,0 +1,9 @@
+print("Ola",file=open("hello.txt","a")) #escreve no arquivo hello.txt, "a" modo append
+tail -f hello.txt #deixar o terminal "ouvindo" o arquivo, pode ser usado para gerar um chat
+
+print = abstracao do sys.stdout
+input = abstracao do sys.stdin
+
+.strip() #remove espaco em branco
+
+

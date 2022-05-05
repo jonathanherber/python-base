@@ -1,0 +1,19 @@
+for condicao:
+    if condicao2:
+        #codigo
+    else: 
+        continue  # igonora o codigo abaixo e volta ao inicio do for
+        #codigo
+        break  #para a execucao
+
+list comprehension:
+dobrada = [n * 2 for n in 1,2,3]  #sempre gera uma nova lista, portanto usar somente quando se deseja uma lista
+dados = [line for line in open("post.txt") if ":" in line]   #itera sobre um arq e adiciona a lista caso tenha : na linha
+
+
+dict comprehension:
+dados = {line for line in open("post.txt")}
+dados = {line.split(":")[0] : line.split(":")[1] for line in open("post.txt") if ":" in line}   
+
+
+while:

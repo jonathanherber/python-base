@@ -1,0 +1,11 @@
+import logging
+
+logging #root logger
+
+try:
+    # codigo  1/0
+except ZeroDivisionError as e:
+    logging.error("mensagem de erro %s", str(e))  #usar %s para logs
+
+log = logging.Logger("nome",logging.DEBUG)
+log.debug("mensagem")

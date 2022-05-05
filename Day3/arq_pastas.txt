@@ -1,0 +1,47 @@
+import os
+
+os.listdir(".") # lista do diretorio atual 
+os.listdir(os.curdir)
+os.mkdir("nome pasta") #cria pasta, se ja houver da erro, mkdir do linux
+os.makedirs("nome_pasta/novapasta", exist_ok=True) #semelhante ao mkdir -p do linux, pode dar problema de compatibiliade devido a barra
+path = os.path.join("nome_pasta","novapasta")
+os.makedirs(path,exist_ok=True) #para poder usar em qqlr OS
+os.mknod("arq.txt) #cria arq na pasta atual
+os.mknod(os.path.join(path,"arq.txt")) #cria arq na pasta do path
+filepath = os.path.join(path,"arq.txt")
+arquivo = open(filepath,"r")
+arquivo.read()
+arquivo = open(filepath,"w") #substitui o cnteudo
+arquivo.write("teste")
+arquivo.close()
+arquivo = open(filepath,"a") #adiciona o cnteudo
+arquivo.write("teste")
+
+with open(filepath, "a") as arquivo:   #ja abre e fecha automaticamente o arq, jeito mais indicado
+    arquivo.write("joao")
+    arquivo.write("teste")
+open(filepath).read()
+
+print("texto",file=open(filepath, "a"))  # jeito mais pratico de escrever
+
+text = [
+    "titulo\n",
+    "texto...",
+]
+filepath = os.path.join(path,"texto.txt")
+with open(filepath, "a") as arquivo:
+    arquivo.writelines(text)   #escrever multiplas linhas
+
+-----------------
+from pathlib import Path
+
+Path("pasta") #caminho da pasta retorna um objeto 
+PosixPath('pasta')
+
+Path("pasta") / Path("subpsta")  #cria a subpasta, semelhante ao join acima
+PosixPath('pasta/subpasta)
+
+path = Path("pasta") / Path ("subpasta")
+
+filepath = path / Path("novo.txt")
+
