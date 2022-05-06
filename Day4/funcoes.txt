@@ -1,0 +1,43 @@
+built in uteis:  #se precisa usar for, procure por uma funcao antes
+
+map()  #aplica uma funcao para cada item de um iteravel
+sorted()   #ordena
+filter()  #filtra
+reversed()  #inverte a ordem
+upper()  #maisculo
+lower()  #minusculo
+sum()  #soma
+max()  #maximo
+min()  #minimo
+all()  #procura se todos os valores sao True
+any()  #procura por um valor True
+enumerate() #for index, valor in enumerate(var)
+zip()  #uniao de estrutura de dados = [dict(zip(coluna,dados)) for dado in dados]
+len()  #tamanho
+open()  #abrir arquivos
+
+
+import random
+random.random() # e varias outras
+
+import itertools as it
+
+it.cycle(var)  #loop infinito
+list(it.product("abc", repeat=2))  #cria as combinacoes possiveis de duas casas com ABC, abc,acb...
+
+list(it.permutations("abc")) #faz a permutacao, abc,acb,...
+
+list(it.combinations("abc",2))  # faz a combinacao sem repeticao
+
+import statitics as st
+
+st.mean(valores)  #media
+st.median(valores)  #mediana
+
+import uuid
+
+uuid.uuid4()  #gera um id unico tipo Grid do C#
+
+import getpass
+senha = getpass.getpass("senha")  #input no terminal para senha sem aparecer o q o usuario esta digitando, igual do linux
+
