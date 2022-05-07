@@ -1,0 +1,134 @@
+Abstracao:
+
+class Person:
+    """Represents a Person"""
+    kingdom = "animalia"
+
+class Fruit:
+    """Represents a fruit"""
+    kingdom = "vegetalia"
+
+class Animal:
+    """Represents an animal"""
+    kingdom = "animalia"
+
+
+Heranca:
+
+class Fruit:  # Classe abstrata
+    kingdom = "vegetalia"
+
+class Apple(Fruit):  # Classe Material
+    colors = ["red", "white"]
+    image = "🍎"
+
+class Watermelon(Fruit):
+    colors = ["green", "red"]
+    image = "🍉"
+
+class Pineapple(Fruit):
+    colors = ["yellow", "green"]
+    image = "🍍"
+
+
+for fruit in [Apple(), Watermelon(), Pineapple()]:
+    print(fruit.image, fruit.kingdom, fruit.colors)
+
+
+fruit1 = Apple()  # OK instancia criada a partir da classe material
+print(fruit1.kingdom)
+
+fruit2 = Fruit()  # NÃO ok, instancia criada a partir da classe abstrata
+print(fruit2.kingdom)
+
+
+
+
+Abstracao para Classe Pai:
+from abc import ABC
+class Fruit(ABC):
+    kingdom = "vegetalia"
+
+
+
+Polimorfismo:
+
+"valor" in objeto  # objeto pode ser qualquer tipo que implementa `__contains__` 
+
+class Dog:
+    def make_sound(self):
+        return "woof woof"
+
+class Cat:
+    def make_sound(self):
+        return "meow meow"
+
+class Bird:
+    def make_sound(self):
+        return "pew pew"
+
+
+def print_sound(obj):
+    print(obj.make_sound())
+
+
+print_sound(Dog())
+print_sound(Cat())
+print_sound(Bird())
+woof woof
+meow meow
+pew pew
+
+
+
+Encapsulamento:
+class Conta:
+    _tipo_de_conta = "corrente"
+    __id_interno = 985645
+
+    def __init__(self, cliente):
+        self.cliente = cliente
+        self._saldo = 0
+
+    def depositar(self, value):
+        self._saldo += value
+
+    def sacar(self, value):
+        self._saldo -= value
+        return value
+
+    def consultar(self):
+        if self._saldo < 0:
+            print("AVISO: Você está devendo")
+        return self._saldo
+
+conta = Conta(cliente="Bruno")
+print(dir(conta))
+# Privado via name mangling
+# Não é possível acessar `conta.__id_interno` mas por conta e risco:
+'_Conta__id_interno',  
+
+# Protegido por convenção de nome:
+# É possível acessar `conta._saldo` mas o `_` denota que esse valor
+# deve ser acessado apenas internamente dentro dos métodos da própria classe.
+'_saldo', 
+'_tipo_de_conta', 
+
+# Atributos e métodos públicos
+'cliente', 
+'consultar', 
+'depositar', 
+'sacar'
+
+
+
+conta = Conta(cliente="Bruno")
+conta.depositar(100)
+conta.sacar(10)
+print(conta.consultar())
+print(conta.cliente)
+90
+Bruno
+
+
+

@@ -1,0 +1,90 @@
+jim = Person()
+jim.name = "Jim Halpert"
+
+def add_points(person, value):
+    if person.role == "manager":
+        value *= 2
+    person.balance += value
+
+pessoa1.add_points(100)
+pessoa2.add_points(200)
+print(pessoa1.__dict__)
+print(pessoa1.balance)
+print(pessoa2.__dict__)
+print(pessoa1.balance)
+{'balance': 200}
+200
+{'balance': 300}
+300
+
+class Fruit:
+    name = "apple"
+
+
+apple = Fruit()
+apple.color = "red"
+
+banana = Fruit()
+banana.color = "yellow"
+
+print(apple.name, apple.color)
+print(banana.name, banana.color)
+apple red
+apple yellow
+
+class Fruit:
+    def __init__(self, name, color):
+        self.name = name
+        self.color = color
+
+
+apple = Fruit(name="Apple", color="red")
+banana = Fruit("Banana", color="yellow")
+
+print(apple.name, apple.color)
+print(banana.name, banana.color)
+Apple red
+Banana yellow
+
+
+def heron(a, b, c):
+    perimeter = a + b + c
+    s = perimeter / 2
+    area = (s * (s - a) * (s - b) * (s - c)) ** 0.5
+    return area
+
+
+    triangulos = [
+    (3, 4, 5),
+    (5, 12, 13),
+    (8, 15, 17),
+    (12, 35, 37),
+    (3, 4, 5),
+    (5, 12, 13),
+    (8, 15, 17),
+    (12, 35, 37),
+]
+for t in triangulos:
+    print("A área do triângulo é: ", heron(*t))
+
+class Triangle:
+    def __init__(self, a, b, c):
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def area(self):
+        perimeter = self.a + self.b + self.c
+        s = perimeter / 2
+        area = (s * (s - self.a) * (s - self.b) * (s - self.c)) ** 0.5
+        return area
+
+
+triangle = Triangle(5, 12, 13)
+print(triangle.area())
+30.0
+
+
+triangle.a = 10
+print(triangle.area())
+56.99506557588999

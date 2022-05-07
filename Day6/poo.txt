@@ -1,0 +1,71 @@
+Classes: Usando a keyword class definimos um tipo de objeto.
+Objetos: Instancias criadar a partir das classes.
+Atributos: As classes podem definir valores nomeados assim como os dicionários.
+Métodos: As classes podem definir funções associadas
+
+
+# Definição da classe
+class Person:  
+    """Represents a Person"""
+
+    # Atributos da classe
+    name = "Jim Halpert"  
+    role = "Salesman"
+    balance = 100
+
+    # Métodos ou funções associadas
+    def add_points(person, value):
+        if person.role == "manager":
+            value *= 2
+        person.balance += value
+
+jim = Person()  # Instanciação de um objeto a partir da classe
+
+jim.add_points(500)  # Chamada de método associado
+
+print(jim.balance)  # Acesso a atributo
+
+
+pessoa1 = Person()
+pessoa2 = Person()
+
+print(pessoa1.name)
+print(pessoa1.__dict__)
+print(pessoa2.name)
+Jim Halpert
+Jim Halpert
+
+print(id(pessoa1))
+print(id(pessoa2))
+140015571746576
+140015571746528
+
+print(id(pessoa1.name))
+print(id(pessoa2.name))
+140197426339504
+140197426339504
+
+print(id(Person.name))
+140197426339504
+
+
+jim = Person()
+jim.name = "Jim Halpert"
+
+
+def add_points(person, value):
+    if person.role == "manager":
+        value *= 2
+    person.balance += value
+
+
+pessoa1.add_points(100)
+pessoa2.add_points(200)
+print(pessoa1.__dict__)
+print(pessoa1.balance)
+print(pessoa2.__dict__)
+print(pessoa1.balance)
+{'balance': 200}
+200
+{'balance': 300}
+300
