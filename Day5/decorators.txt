@@ -1,0 +1,57 @@
+def soma(a,b):
+   return a+b
+
+def dobra(f):     #recebe funcao como parametro
+   def manipuladora(a,b):
+	return f(a*2,b*2)
+   return manipuladora
+
+
+soma = dobra(soma)
+
+soma(1,2)
+6
+
+
+#maneira mais usada:
+@dobra   #decorator
+def soma(a,b)
+   return a+b
+
+soma(1,2)
+6
+
+@dobra
+def mult (a,b)
+    return a*b
+
+mult(2,4)
+3
+
+
+É uma funcao que internamente intercepta uma funcao e altera o comportamento dela
+
+
+def bold(f):
+    @wraps(f)
+    def wrapper(text):
+        result = f(text)
+        return f"<strong>{result}</strong>"
+    return wrapper
+
+
+def italic(f):
+    @wraps(f)
+    def wrapper(text):
+        result = f(text)
+        return f"<i>{result}</i>"
+    return wrapper
+
+
+@bold
+@italic
+def hello(text):
+    return f"Hello {text}"
+
+
+assert hello("Bruno") == '<i><strong>Hello Bruno</strong></i>'
