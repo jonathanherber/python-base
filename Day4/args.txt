@@ -1,0 +1,4 @@
+def funcao (*args, timeout=10, **kwargs):  #*args representa os argumentos passados na chamada (serao tuple) ate o timeout (parametro definido) e o kwargs recebera o restante (dict)
+    return "ok"
+
+funcao(1,2,3,timeout=5,"a","b")

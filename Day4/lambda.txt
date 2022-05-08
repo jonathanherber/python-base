@@ -1,0 +1,25 @@
+passar uma funcao como argumento para uma funcao
+
+names = ["joao","pedro","maria"]
+
+print(list(filter(lamba name : name[0].lower() == "b", names)))   #funcao lamba retorna os nomes que comecam com b
+
+print(list(map(lamba name : "Hello" + name, names)))  #adiciona hello a todos os names
+
+operacao = input("operacao: ").strip()
+n1 = input("valor 1: ")
+n2 = input("valor 2: ")
+
+operacoes = {
+    "sum" : lamba a,b : a + b,
+    "sub" : lamba a,b : a - b,
+    "mul" : lamba a,b : a * b,
+    "div" : lamba a,b : a / b,
+}
+
+resultado = operacoes[operacao](int(n1), int(n2))
+print(resultado)
+
+(lambda a : a + 1)(10)  #lamba a = parametro : a + 1 é uma unica expressao (10) é o argumento
+
+principal utilizacao: usar como parametro

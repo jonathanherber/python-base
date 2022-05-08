@@ -5,7 +5,8 @@ class Conta:
     @property
     def saldo(self):
         return self.__saldo
-    
+    def soma(a,b):
+        return a+b
     
 conta = Conta("jonathan")
 conta.saldo = 12

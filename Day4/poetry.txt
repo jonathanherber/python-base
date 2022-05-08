@@ -1,0 +1,21 @@
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+
+poetry new poetry-demo  #criar projeto
+
+cd poetry-demo
+env use versao_python  #criar venv
+poetry shell #ativa venv
+
+poetry add flask @latest   #cria proj flask
+
+poetry add package  #adicionar pacote
+
+poetry install  #atualizar os pacotes
+
+poetry build   #buildar
+
+poetry export -f requirements.txt -o requirements.txt
+
+
+#para instalar os requisitos
+pip install --require-hashes -r requirements.txt

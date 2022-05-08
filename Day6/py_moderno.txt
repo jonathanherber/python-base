@@ -1,0 +1,206 @@
+###ls nome.arq.py | entr -c -s "mypy nome_arq.py && python nome_arq.py"          roda o programa o mypy
+
+from decimal import Decimal
+
+produto = "Caneta"
+valor = Decimal(4.5)
+quantidade = 5
+
+
+def calcula_total(valor, quantidade):
+    return valor * quantidade
+
+
+total_da_compra = calcula_total(valor, quantidade)
+
+
+print(f"A compra de {quantidade} {produto}s deu R$ {total_da_compra}")
+
+
+...
+total_da_compra = calcula_total(valor, quantidade)
+
+print(type(total_da_compra))  # vamos ver o tipo de total_da_compra
+
+print(f"A compra de {quantidade} {produto}s deu R$ {total_da_compra}")
+
+<class 'decimal.Decimal'>
+A compra de 5 Canetas deu R$ 22.5
+
+
+...
+valor = 5.3
+total_da_compra = calcula_total(valor, quantidade)
+
+print(type(total_da_compra))
+
+print(f"A compra de {quantidade} {produto}s deu R$ {total_da_compra}")
+
+<class 'float'>
+A compra de 5 Canetas deu R$ 26.5
+
+
+
+Type Annotations
+
+def calcula_total(valor: Decimal, quantidade: int) -> Decimal:
+    return valor * quantidade
+
+<class 'float'>
+A compra de 5 Canetas deu R$ 26.5
+
+
+Mypy
+
+pip install mypy
+
+mypy arquivo.py
+arquivo.py:12: error: Incompatible types in assignment (expression has type "float", variable has type "Decimal")
+Found 1 error in 1 file (checked 1 source file)
+
+valor = Decimal(5.3)
+
+from decimal import Decimal
+produto: str = "Caneta"
+valor: Decimal = Decimal(4.5)
+quantidade: int = 5
+
+
+def calcula_total(valor: Decimal, quantidade: int) -> Decimal:
+    return valor * quantidade
+
+
+valor = Decimal(5.3)  # anotação de tipo já efetuada na linha 3
+total_da_compra: Decimal = calcula_total(valor, quantidade)
+
+
+from decimal import Decimal
+
+produto = "Caneta"
+valor = Decimal(4.5)
+quantidade = 5
+
+
+def calcula_total(valor: Decimal, quantidade: int) -> Decimal:
+    return valor * quantidade
+
+
+valor = Decimal(5.3)
+total_da_compra = calcula_total(valor, quantidade)
+
+print(type(total_da_compra))
+
+print(f"A compra de {quantidade} {produto}s deu R$ {total_da_compra}")
+Success: no issues found in 1 source file
+
+...
+
+produto = 1  # era string e mudamos para inteiro
+valor = Decimal(5.3)
+total_da_compra = calcula_total(valor, quantidade)
+...
+arquivo.py:12: error: Incompatible types in assignment (expression has type "int", variable has type "str")
+Found 1 error in 1 file (checked 1 source file)
+
+
+Composição de tipos
+
+calcula_total(Decimal(1), 4)  # Ok
+
+# e
+
+calcula_total(1, 4)  # erro
+
+error: Argument 1 to "calcula_total" has incompatible type "int"; expected "Decimal"
+
+from typing import Union
+...
+def calcula_total(valor: Union[Decimal, int], quantidade: int) -> Decimal:
+    return Decimal(valor * quantidade)
+
+
+calcula_total(1, 4)
+Success: no issues found in 1 source file
+
+def calcula_total(valor: Decimal | int, quantidade: int) -> Decimal:
+    return Decimal(valor * quantidade)
+
+    # antes do Python 3.9
+def function(arg: Dict[str, float]):
+    ...
+
+# após o Python 3.9
+def function(arg: dict[str, float]):
+    ...
+
+
+# antes do Python 3.9
+def function(arg: List[int] | Tuple[int]):
+    ...
+
+# após o Python 3.9
+def function(arg: list[int] | tuple[int]):
+    ...
+
+
+    # Antes do Python 3.9
+def function(arg: Optional[Set[int]]):
+    ...
+
+# após o Python 3.9
+def function(arg: set[int] | None):
+    ...
+
+
+function(set([1, 2]))
+function(None)
+
+
+Type alias
+
+{   
+    "joe@doe.com": {  
+        "name": "Joe",
+        "points": 10
+    }
+}
+
+def funcao(dados: dict[str, dict[str, Any]]):
+    ...
+
+    DictPessoa = dict[str, dict[str, Any]]
+
+
+def funcao(dados: DictPessoa):
+    ...
+
+
+class Pessoa:
+    def __init__(self, pk: str, name: str, points: int):
+        self.pk = pk
+        self.name = name
+        self.points = points
+
+
+def funcao(dados: Pessoa):  # usamos a própria classe para anotar
+    ...
+
+
+dados = Pessoa(pk="joe@doe.com", name="Joe", points=10)
+
+funcao(dados)
+
+@dataclass
+class Pessoa:
+    pk: str
+    name: str
+    points: int
+
+
+def funcao(dados: Pessoa):
+    ...
+
+
+dados = Pessoa(pk="joe@doe.com", name="Joe", points=10)
+
+funcao(dados)
