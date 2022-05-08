@@ -1,0 +1,37 @@
+from abc import ABC, abstractmethod
+from dataclasses import dataclass
+
+class ABCInstrument (ABC):
+
+    @abstractmethod
+    def play(self):
+        ...
+    
+@dataclass
+class DataInstrumentMixin:
+    name:str
+    sound:str
+    kind:str
+
+class Instrument(DataInstrumentMixin,ABCInstrument):
+    ...
+
+@dataclass
+class Guitar(Instrument):
+    sound: str = "ding ding"
+    kind: str = "string"
+
+    def play(self):
+        return self.sound
+
+@dataclass
+class Flute(Instrument):
+    sound: str = "flu flu"
+    kind: str = "string"
+
+    def play(self):
+        return self.sound
+
+
+gianini = Guitar("gianini) 
+print(guitar.play())
